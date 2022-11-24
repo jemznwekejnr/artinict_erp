@@ -2,19 +2,29 @@ import mongoose from "mongoose";
 import 'mongoose-type-email';
 const { Schema } = mongoose;
 
-const memoSchema = new Schema(
+const activitySchema = mongoose.Schema(
+{
+  recipientId: { type: String },
+  ccLevel: { type: Number },
+  action: { type: String, default: "None" },
+  status: { type: Number, default: "Pending" },
+  remarks: { type: String, default: "" }
+},
+{ timestamps: true }
+);
+
+const memoSchema = mongoose.Schema(
   {
     memoDate: { type: Date, required: ["Memo Date field is required"] },
     refId: { type: String, required: ["Memo Date field is required"] },
     memoTitle: { type: String, required: ["Memo title field is required"] },
     memoBody: { type: String, required: ["Memo title field is required"] },
     ownerId: { type: String, required: ["First name field is required"] },
-    attachment: { type: String, required: ["Home Address field is required"] },
-    attachemntType: { type: String, required: ["Gender number field is required"] },
-    memoType: { type: String, required: ["Phone number field is required"] },
+    attachment: { type: String },
+    attachemntType: { type: String },
+    memoType: { type: String, required: ["Memo Type field is required"] },
     completion: { type: Number },
-
-    correspondents: [{ label: String }],
+    activities: [activitySchema]
     
   },
   { timestamps: true }

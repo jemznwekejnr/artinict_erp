@@ -8,11 +8,8 @@ router.get(
   
   UserController.index
 );
-router.post(
-    "/create",
-    
-    UserController.create
-  );
-  router.delete("/:id", UserController.destroy);
+router.post("/create", UserController.create);
+
+router.delete("/:id", UserController.destroy);
   
 export default router;

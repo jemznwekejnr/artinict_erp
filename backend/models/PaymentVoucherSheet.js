@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import 'mongoose-type-email';
 const { Schema } = mongoose;
 
-const memoActivitySheetSchema = new Schema(
+const PaymentVoucherSheetSchema = new Schema(
   {
     paymentVoucherId: { type: String, required: ["Voucher ID is compulsory"] },
     class: { type: String, required: ["Payment class is compulsory"] },
@@ -23,4 +23,4 @@ const memoActivitySheetSchema = new Schema(
  
 );
 
-export default new mongoose.model("memoActivitySheet", memoActivitySheetSchema);
+export default new mongoose.model("PaymentVoucherSheet", PaymentVoucherSheetSchema);
